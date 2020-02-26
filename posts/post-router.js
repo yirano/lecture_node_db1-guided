@@ -41,7 +41,7 @@ router.post("/", async (req, res, next) => {
 		// get the newly created resource from the database in another request so we can return it.
 		const newPost = await db("posts").where("id", id).first()
 
-		res.json(newPost)
+		res.status(201).json(newPost)
 	} catch(err) {
 		next(err)
 	}
